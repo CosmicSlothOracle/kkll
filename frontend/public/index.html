@@ -219,22 +219,15 @@
                 </div>
                 <div class="event-participation">
                     <h3>Teilnahme für Event 1</h3>
-                    <form class="event-participation-form" data-event="1">
+                    <form class="event-participation-form" name="event1-participation" netlify>
+                        <input type="hidden" name="event" value="Event 1">
                         <input type="text" name="name" placeholder="Ihr Name" required>
                         <input type="email" name="email" placeholder="Ihre E-Mail (optional)">
                         <textarea name="message" placeholder="Ihre Nachricht (optional)"></textarea>
                         <button type="submit">Teilnehmen</button>
                     </form>
-                    <button class="show-participants-btn" id="show-participants-btn-1" style="display:none;">Teilnehmer anzeigen</button>
                 </div>
             </section>
-            <div id="participants-modal-1" class="modal">
-                <div class="modal-content">
-                    <span class="close participants-modal-close" data-modal="1">&times;</span>
-                    <h2>Teilnehmer für Event 1</h2>
-                    <div id="participants-list-1"></div>
-                </div>
-            </div>
 
             <section id="event2">
                 <div class="section-title-container">
@@ -245,22 +238,15 @@
                 </div>
                 <div class="event-participation">
                     <h3>Teilnahme für Event 2</h3>
-                    <form class="event-participation-form" data-event="2">
+                    <form class="event-participation-form" name="event2-participation" netlify>
+                        <input type="hidden" name="event" value="Event 2">
                         <input type="text" name="name" placeholder="Ihr Name" required>
                         <input type="email" name="email" placeholder="Ihre E-Mail (optional)">
                         <textarea name="message" placeholder="Ihre Nachricht (optional)"></textarea>
                         <button type="submit">Teilnehmen</button>
                     </form>
-                    <button class="show-participants-btn" id="show-participants-btn-2" style="display:none;">Teilnehmer anzeigen</button>
                 </div>
             </section>
-            <div id="participants-modal-2" class="modal">
-                <div class="modal-content">
-                    <span class="close participants-modal-close" data-modal="2">&times;</span>
-                    <h2>Teilnehmer für Event 2</h2>
-                    <div id="participants-list-2"></div>
-                </div>
-            </div>
 
             <section id="event3">
                 <div class="section-title-container">
@@ -271,22 +257,15 @@
                 </div>
                 <div class="event-participation">
                     <h3>Teilnahme für Event 3</h3>
-                    <form class="event-participation-form" data-event="3">
+                    <form class="event-participation-form" name="event3-participation" netlify>
+                        <input type="hidden" name="event" value="Event 3">
                         <input type="text" name="name" placeholder="Ihr Name" required>
                         <input type="email" name="email" placeholder="Ihre E-Mail (optional)">
                         <textarea name="message" placeholder="Ihre Nachricht (optional)"></textarea>
                         <button type="submit">Teilnehmen</button>
                     </form>
-                    <button class="show-participants-btn" id="show-participants-btn-3" style="display:none;">Teilnehmer anzeigen</button>
                 </div>
             </section>
-            <div id="participants-modal-3" class="modal">
-                <div class="modal-content">
-                    <span class="close participants-modal-close" data-modal="3">&times;</span>
-                    <h2>Teilnehmer für Event 3</h2>
-                    <div id="participants-list-3"></div>
-                </div>
-            </div>
 
             <section id="event4">
                 <div class="section-title-container">
@@ -297,45 +276,17 @@
                 </div>
                 <div class="event-participation">
                     <h3>Teilnahme für Event 4</h3>
-                    <form class="event-participation-form" data-event="4">
+                    <form class="event-participation-form" name="event4-participation" netlify>
+                        <input type="hidden" name="event" value="Event 4">
                         <input type="text" name="name" placeholder="Ihr Name" required>
                         <input type="email" name="email" placeholder="Ihre E-Mail (optional)">
                         <textarea name="message" placeholder="Ihre Nachricht (optional)"></textarea>
                         <button type="submit">Teilnehmen</button>
                     </form>
-                    <button class="show-participants-btn" id="show-participants-btn-4" style="display:none;">Teilnehmer anzeigen</button>
                 </div>
             </section>
-            <div id="participants-modal-4" class="modal">
-                <div class="modal-content">
-                    <span class="close participants-modal-close" data-modal="4">&times;</span>
-                    <h2>Teilnehmer für Event 4</h2>
-                    <div id="participants-list-4"></div>
-                </div>
-            </div>
 
-            <!-- Event Edit Modal -->
-            <div id="event-edit-modal" class="modal">
-                <div class="modal-content">
-                    <span class="modal-close">&times;</span>
-                    <h2>Event Bild bearbeiten</h2>
-                    <div class="current-url-container">
-                        <label for="event-edit-url">Aktuelle Bild-URL:</label>
-                        <p id="current-url"></p>
-                    </div>
-                    <form id="event-edit-form">
-                        <input type="text" id="event-edit-url" placeholder="Neue Bild-URL" required>
-                        <div class="preview-container">
-                            <img id="event-edit-preview" src="" alt="Vorschau">
-                        </div>
-                        <div class="modal-actions">
-                            <button type="submit">Speichern</button>
-                            <button type="button" class="modal-cancel">Abbrechen</button>
-                        </div>
-                        <div id="event-edit-message" class="message"></div>
-                    </form>
-                </div>
-            </div>
+
         </main>
         <footer id="contact" role="contentinfo">
             <h2 data-translate="contact-title">Kontakt & Impressum</h2>
@@ -349,72 +300,7 @@
             </div>
         </footer>
     </div>
-    <!-- Events Container -->
-    <div id="events-container" class="events-container">
-        <!-- Events will be loaded here dynamically -->
-    </div>
 
-    <!-- Add Event Button (only visible to admin) -->
-    <button id="add-event-btn" class="add-event-btn" style="display: none;">Add Event</button>
-
-    <!-- Admin Login Modal -->
-    <div id="admin-login-modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Admin Login</h2>
-            <form id="admin-login-form">
-                <div class="form-group">
-                    <label for="username">Username</label>
-                    <input type="text" id="username" name="username" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" required>
-                </div>
-                <button type="submit" class="admin-save-btn">Login</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Admin Event Modal -->
-    <div id="adminModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Edit Event</h2>
-            <form id="eventForm">
-                <div class="form-group">
-                    <label for="eventTitle">Event Title</label>
-                    <input type="text" id="eventTitle" name="title" required>
-                </div>
-                <div class="form-group">
-                    <label for="eventDate">Event Date</label>
-                    <input type="date" id="eventDate" name="date" required>
-                </div>
-                <div class="form-group">
-                    <label for="eventTime">Event Time</label>
-                    <input type="time" id="eventTime" name="time" required>
-                </div>
-                <div class="form-group">
-                    <label for="eventLocation">Location</label>
-                    <input type="text" id="eventLocation" name="location" required>
-                </div>
-                <div class="form-group">
-                    <label for="eventDescription">Description</label>
-                    <textarea id="eventDescription" name="description" required></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="eventImageUrl">Bild-URL</label>
-                    <input type="text" id="eventImageUrl" name="imageUrl" placeholder="https://..." />
-                </div>
-                <button type="submit" class="admin-save-btn">Save Changes</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Logout Button -->
-    <button id="logout-btn" style="display: none;">Logout</button>
-
-    <button id="edit-event-btn" class="edit-event-btn">Edit Event</button>
 
     <!-- Privacy Policy Modal -->
     <div id="privacy-policy-modal" class="modal">
@@ -439,9 +325,7 @@
         </div>
     </div>
 
-    <!-- Existing Scripts -->
-    <script src="js/config.js"></script>
-    <script src="/js/admin.js"></script>
+    <!-- Scripts -->
     <script src="js/main.js"></script>
     <script src="js/logo-animation.js"></script>
 

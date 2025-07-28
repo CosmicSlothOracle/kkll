@@ -1,169 +1,128 @@
-# KOSGE Website
+# KOSGE Website - Netlify Forms Version
 
-Website for Kollektiv für solidarische Gesundheit e.V. (KOSGE), a collective for solidarity health in Berlin.
+## Überblick
+
+Dies ist die offizielle Website für Kollektiv für solidarische Gesundheit e.V. (KOSGE), ein Kollektiv für solidarische Gesundheit in Berlin. Die Website ist mehrsprachig, responsiv und zugänglich gestaltet.
 
 ## Features
 
-- Flask backend with MongoDB support
-- Content Management System (CMS) with multilingual support
-- Participant registration system
-- Image upload and management
-- Responsive design
-- Admin authentication
-- Translation memory system
+### Mehrsprachigkeit
 
-## Recent Updates
+- Die Website ist in mehreren Sprachen verfügbar:
+  - Deutsch (Standard)
+  - Englisch
+  - Türkisch
+  - Russisch
+  - Arabisch
+  - Einfache Sprache (Deutsch)
+- Sprachauswahl ist in der oberen rechten Ecke der Website verfügbar
+- Benutzerspracheinstellungen werden im Browser-LocalStorage gespeichert
 
-- **Architecture Cleanup**: Removed duplicate path definitions, centralized configuration
-- **MongoDB Ready**: Added pymongo and gridfs dependencies for database migration
-- **Error Handling**: Enhanced Google Translator error handling for rate limiting
-- **Security**: Added .gitignore and environment variable templates
-- **Containerization**: Added Dockerfile for local development
+### Responsive Design
 
-## Local Development
+- Die Website ist vollständig responsiv und funktioniert auf allen Geräten (Desktop, Tablet, Mobile)
+- Adaptives Layout, das sich je nach Bildschirmgröße ändert
+- Mobile-freundliche Navigation
 
-1. Clone the repository
+### Interaktive Elemente
 
-```bash
-git clone https://github.com/yourusername/kosge.git
-cd kosge/frontend
+- Hero-Slideshow mit automatischen Übergängen
+- Hover-Effekte auf interaktiven Elementen für bessere Benutzererfahrung
+- Sanfte Übergänge und Animationen
+
+### Netlify Forms Integration
+
+- Event-Teilnahme-Formulare verwenden Netlify Forms
+- Banner-Auswahl-Formular auf der Teilnahme-Seite
+- Automatische Datenspeicherung im Netlify Dashboard
+- Keine Backend-Abhängigkeiten
+
+## Projektstruktur
+
+```
+frontend/
+├── public/                    # Statische Frontend-Dateien
+│   ├── index.html            # Hauptseite (Deutsch)
+│   ├── teilnahme.html        # Teilnahme-Seite
+│   ├── _redirects            # Netlify Redirects
+│   ├── css/                  # Stylesheets
+│   │   ├── admin.css        # Admin Styles (nicht mehr verwendet)
+│   │   └── style.css        # Hauptstyles
+│   ├── img/                  # Bilder
+│   │   └── kosge_logo.svg   # KOSGE Logo
+│   ├── js/                   # JavaScript-Dateien
+│   │   ├── logo-animation.js # Logo Animation
+│   │   └── main.js          # Haupt-JavaScript
+│   └── locales/              # Frontend Lokalisierung
+│       ├── ar.html          # Arabisch
+│       ├── einfach.html     # Einfach Deutsch
+│       ├── en.html          # Englisch
+│       ├── ru.html          # Russisch
+│       └── tr.html          # Türkisch
+├── locales/                  # Übersetzungsdateien
+│   ├── ar.html              # Arabische Lokalisierung
+│   ├── einfach.html         # Einfache deutsche Lokalisierung
+│   ├── en.html              # Englische Lokalisierung
+│   ├── language_config.json # Sprachkonfiguration
+│   ├── ru.html              # Russische Lokalisierung
+│   └── tr.html              # Türkische Lokalisierung
+└── translate_tool/           # Übersetzungstools
+    ├── translate_html.py    # HTML Übersetzungstool
+    └── translation_validator.py # Übersetzungsvalidierung
 ```
 
-2. Start the local development server
+## Netlify Forms
 
-```bash
-python server.py
-```
+Die Website verwendet Netlify Forms für alle Benutzerdaten:
 
-The website will be available at `http://localhost:8080`
+### Event-Teilnahme-Formulare
+
+- `event1-participation` - Teilnahme für Event 1
+- `event2-participation` - Teilnahme für Event 2
+- `event3-participation` - Teilnahme für Event 3
+- `event4-participation` - Teilnahme für Event 4
+
+### Banner-Teilnahme-Formular
+
+- `banner-participation` - Banner-Auswahl und Teilnahme
+
+Alle Formulardaten werden automatisch im Netlify Dashboard gespeichert und können dort eingesehen werden.
+
+## Lokale Entwicklung
+
+Um die Website lokal zu starten:
+
+1. Repository klonen
+2. In das Projektverzeichnis navigieren
+3. Lokalen Webserver starten:
+   ```
+   cd frontend/public
+   python -m http.server 8000
+   ```
+4. Browser öffnen und zu `http://localhost:8000` navigieren
 
 ## Deployment
 
-1. Push to GitHub
-2. Enable GitHub Pages in repository settings
-3. Select the `main` branch or `docs` folder
+Die Website wird automatisch über Netlify deployed:
 
-## Data Persistence
+- **Frontend**: Netlify (https://berlin-kosge.netlify.app)
+- **Forms**: Netlify Forms (automatisch integriert)
+- **Assets**: Externe Links (Storj, Postimg)
 
-- Event images are saved in `localStorage` under the key `events`
-- Participant registrations are saved in `localStorage` under the key `event-participants`
+## Übersetzung
 
-## Customization
+Die Website verwendet ein benutzerdefiniertes Python-Skript für Übersetzungen. Um Übersetzungen zu aktualisieren:
 
-- Modify event images by clicking the "Bearbeiten" button
-- Add/edit event details directly in the HTML
-- Customize styles in `frontend/public/css/style.css`
+1. Änderungen an der Hauptdatei `index.html` (Deutsche Version) vornehmen
+2. Übersetzungsskript ausführen:
+   ```
+   python translate_tool/translate_html.py
+   ```
+3. Das Skript generiert aktualisierte HTML-Dateien für alle unterstützten Sprachen im `locales/` Verzeichnis
 
-## Browser Compatibility
+## Kontakt
 
-- Modern browsers with localStorage support
-- Responsive design for mobile and desktop
+Bei Fragen oder Problemen kontaktieren Sie bitte:
 
-## Contributing
-
-1. Fork the repository
-2. Create your feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a Pull Request
-
-## Admin Access
-
-The default admin credentials are:
-
-- Username: `admin`
-- Password: `kosge2023`
-
-**Important:** For security in production, change the login credentials in:
-
-1. `frontend/public/index.html` (search for `ADMIN_USERNAME` and `ADMIN_PASSWORD`)
-2. `frontend/public/admin/login.html` (same variables)
-
-## Maintenance
-
-### Adding Languages
-
-1. Create a new HTML file in the `frontend/locales/` directory
-2. Update the language selector in `index.html`
-3. Add translations to the language configuration
-
-### Image Upload
-
-The admin panel allows uploading images by URL. For best results:
-
-1. Use image hosting services like Cloudinary, Imgur, or Storj
-2. Upload your image to the service
-3. Copy the direct link to the image
-4. Paste it in the admin panel
-
-## Data Storage
-
-Since this is a static website, all data is stored in the browser's localStorage:
-
-- Participant information
-- Banner URLs
-- Admin authentication
-
-Note that this data is browser-specific and will be lost if the user clears their browser data.
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Contact
-
-For any questions or issues, please contact:
-
-- Email: info@kosge-berlin.de
-- Phone: +49 1520 7240947
-
-# Deployment & Local Development
-
-## 🚀 Deployment
-
-### Frontend (Netlify)
-
-1. Push your code to [https://github.com/CosmicSlothOracle/Kosg.git](https://github.com/CosmicSlothOracle/Kosg.git).
-2. Sign up/log in to [Netlify](https://netlify.com).
-3. Click "Add new site" → "Import an existing project".
-4. Connect your GitHub and select the `Kosg` repo.
-5. Set **publish directory** to `frontend/public`.
-6. Deploy! Netlify will auto-deploy on every push.
-7. The `/frontend/public/_redirects` file proxies `/api/*` to your backend, so you can use `/api/...` in your frontend code without CORS issues.
-
-### Backend (Render)
-
-1. Sign up/log in to [Render](https://render.com).
-2. Click "New +" → "Web Service".
-3. Connect your GitHub and select the `Kosg` repo.
-4. Set **root directory** to `backend`.
-5. **Build command:** `pip install -r requirements.txt`
-6. **Start command:** `python app.py`
-7. **Port:** `10000` (or as set in your code)
-8. Deploy! Render will auto-deploy on every push.
-
-## 🛠 Local Development
-
-### Frontend
-
-```bash
-cd frontend/public
-python -m http.server 8000
-# Visit http://localhost:8000
-```
-
-### Backend
-
-```bash
-cd backend
-python -m venv venv
-venv\Scripts\activate  # On Windows
-pip install -r requirements.txt
-python app.py
-# API runs on http://localhost:10000
-```
-
----
-
-- All API calls from the frontend should use `/api/...` (Netlify will proxy to backend in production).
-- For local dev, update API URLs in frontend to `http://localhost:10000/api/...` or use a proxy.
+- E-Mail: info@kosge-berlin.de
+- Telefon: +49 1520 7240947

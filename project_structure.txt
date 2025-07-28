@@ -1,94 +1,86 @@
-Auflistung der Ordnerpfade für Volume Windows
-Volumeseriennummer : D4B4-B5A2
+KOSGE Website - Netlify Forms Version
+=====================================
 
-C:\USERS\SKANK\KO-1
+Projektstruktur nach Migration zu Netlify Forms
+
+ko-2/
+├── .gitignore                    # Git Ignore für Frontend-only Projekt
+├── netlify.toml                  # Netlify Konfiguration
+├── README.md                     # Projekt-Dokumentation
+├── project_structure.txt         # Diese Datei
 │
-├── app.py                          # Flask Backend Hauptanwendung
-├── cms.py                          # Content Management System
-├── config.py                       # Konfigurationsdatei
-├── requirements.txt                # Python Dependencies
-├── render.yaml                     # Render Deployment Konfiguration
-├── netlify.toml                   # Netlify Deployment Konfiguration
-├── participants.json               # Teilnehmerdaten
-├── README.md                       # Projektbeschreibung
-├── project_structure.txt           # Diese Datei
-├── project_structure_backend.txt   # Backend Struktur
-├── project_structure_frontend.txt  # Frontend Struktur
-│
-├── uploads/                        # Upload-Verzeichnis für Bilder
-│   ├── 1.png
-│   └── Pius_bf.png
-│
-├── content/                        # Content Management System
-│   ├── vision.json                 # Vision Konfiguration
-│   ├── de/                         # Deutsche Inhalte
-│   │   └── vision.md
-│   ├── en/                         # Englische Inhalte
-│   │   └── vision.md
-│   ├── tr/                         # Türkische Inhalte
-│   │   └── vision.md
-│   ├── ru/                         # Russische Inhalte
-│   │   └── vision.md
-│   └── ar/                         # Arabische Inhalte
-│       └── vision.md
-│
-├── frontend/                       # Frontend Anwendung
-│   ├── server.py                   # Frontend Development Server
-│   ├── README.md                   # Frontend Dokumentation
-│   ├── project_structure_frontend.txt
+├── frontend/                     # Frontend-Bereich
+│   ├── README.md                # Frontend-Dokumentation
+│   ├── locales/                 # Übersetzungsdateien
+│   │   ├── ar.html             # Arabische Lokalisierung
+│   │   ├── einfach.html        # Einfache deutsche Lokalisierung
+│   │   ├── en.html             # Englische Lokalisierung
+│   │   ├── language_config.json # Sprachkonfiguration
+│   │   ├── ru.html             # Russische Lokalisierung
+│   │   └── tr.html             # Türkische Lokalisierung
 │   │
-│   ├── locales/                    # Lokalisierungsdateien
-│   │   ├── ar.html
-│   │   ├── einfach.html
-│   │   ├── en.html
-│   │   ├── language_config.json
-│   │   ├── ru.html
-│   │   └── tr.html
+│   ├── translate_tool/          # Übersetzungstools
+│   │   ├── translate_html.py   # HTML Übersetzungstool
+│   │   └── translation_validator.py # Übersetzungsvalidierung
 │   │
-│   ├── translate_tool/             # Übersetzungstools
-│   │   ├── translate_html.py
-│   │   └── translation_validator.py
-│   │
-│   └── public/                     # Statische Frontend-Dateien
-│       ├── index.html              # Hauptseite
-│       ├── teilnahme.html          # Teilnahme-Seite
-│       ├── _redirects              # Netlify Redirects
+│   └── public/                  # Statische Frontend-Dateien
+│       ├── index.html          # Hauptseite (28KB, 489 Zeilen)
+│       ├── teilnahme.html      # Teilnahme-Seite (11KB, 339 Zeilen)
+│       ├── _redirects          # Netlify Redirects (keine Backend-Redirects)
 │       │
-│       ├── admin/                  # Admin-Bereich
-│       │   └── cms.html
+│       ├── css/                # Stylesheets
+│       │   ├── admin.css      # Admin Styles (nicht mehr verwendet)
+│       │   └── style.css      # Hauptstyles (32KB, 1611 Zeilen)
 │       │
-│       ├── css/                    # Stylesheets
-│       │   ├── admin.css
-│       │   └── style.css
+│       ├── img/                # Bilder
+│       │   └── kosge_logo.svg # KOSGE Logo
 │       │
-│       ├── img/                    # Bilder
-│       │   └── kosge_logo.svg
+│       ├── js/                 # JavaScript-Dateien
+│       │   ├── logo-animation.js # Logo Animation (1.3KB, 31 Zeilen)
+│       │   └── main.js        # Haupt-JavaScript (5.0KB, 149 Zeilen)
 │       │
-│       ├── js/                     # JavaScript-Dateien
-│       │   ├── admin-dashboard.js
-│       │   ├── admin.js
-│       │   ├── config.js
-│       │   ├── logo-animation.js
-│       │   └── main.js
-│       │
-│       └── locales/                # Frontend Lokalisierung
-│           ├── ar.html
-│           ├── einfach.html
-│           ├── en.html
-│           ├── ru.html
-│           └── tr.html
-│
-├── .github/                        # GitHub CI/CD
-│   └── workflows/
-│       └── static.yml
-│
-└── .git/                           # Git Repository
+│       └── locales/            # Frontend Lokalisierung
+│           ├── ar.html         # Arabisch
+│           ├── einfach.html    # Einfach Deutsch
+│           ├── en.html         # Englisch
+│           ├── ru.html         # Russisch
+│           └── tr.html         # Türkisch
 
-Test-Dateien:
-├── test_events_display.js
-├── test_language_paths.html
-└── test_language_switching.js
+Frontend Features:
+├── Multi-Language Support (5 Sprachen + Einfache Sprache)
+├── Responsive Design
+├── Netlify Forms Integration
+├── Event Participation Forms
+├── Logo Animation
+├── Translation Tools
+└── Static Site Generation
 
-Archiv-Dateien:
-└── geko-berlin-0f8aa7b3e956d803144ae29d9cabba761ff51042.zip
+Netlify Forms:
+├── event1-participation        # Event 1 Teilnahme
+├── event2-participation        # Event 2 Teilnahme
+├── event3-participation        # Event 3 Teilnahme
+├── event4-participation        # Event 4 Teilnahme
+└── banner-participation        # Banner Auswahl
 
+Deployment:
+├── Netlify (netlify.toml)
+└── GitHub Actions (falls benötigt)
+
+Entfernte Backend-Komponenten:
+├── Flask API (app.py)
+├── MongoDB/Database (database.py)
+├── JWT Authentication (jwt_utils.py)
+├── CMS System (cms.py)
+├── File Upload System
+├── Admin Dashboard
+├── Backend Tests
+├── Docker Configuration
+├── Render Deployment
+└── Backend Dependencies
+
+Migration abgeschlossen: ✅
+- Alle Backend-Abhängigkeiten entfernt
+- Netlify Forms integriert
+- Frontend-Funktionalität erhalten
+- Mehrsprachigkeit beibehalten
+- Responsive Design unverändert
