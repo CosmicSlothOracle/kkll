@@ -1,0 +1,29 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/uploads" # wird nicht genutzt, aber nötig
+public_folder: "/images/uploads"
+
+collections:
+  - name: "bildlinks"
+    label: "Bild-Links"
+    folder: "data/bilder"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Titel", name: "title", widget: "string" }
+      - { label: "Bild-URL", name: "bildurl", widget: "string" }
+      - {
+          label: "Beschreibung",
+          name: "description",
+          widget: "text",
+          required: false,
+        }
+      - {
+          label: "Kategorie",
+          name: "category",
+          widget: "select",
+          options: ["event", "hero", "background", "other"],
+          required: false,
+        }
